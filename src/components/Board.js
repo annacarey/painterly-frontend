@@ -1,13 +1,31 @@
 import React from 'react';
+import Cell from './Cell';
+import './Board.css';
 
-function Canvas () {
+function Board (props) {
    
         return (
-        <div>
-          
+        <div className="board"> 
+          {props.currentGrid.map((row, xCord) => {
+                return row.map((cellColor, yCord) => {
+                       return  <Cell key={`${xCord}${yCord}`} xCord={xCord} yCord={yCord} cellColor={cellColor} paintCell={props.paintCell} />
+                }
+                  )
+          })}
         </div>
         )
     
 }
 
-export default Canvas;
+export default Board;
+
+Board.defaultProps = {
+        currentColor: "#0000FF",
+        currentGrid:  [
+                ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
+                ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
+                ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
+                ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
+                ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"]
+        ]
+}
