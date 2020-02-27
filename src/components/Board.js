@@ -8,7 +8,7 @@ function Board (props) {
         <div className="board"> 
           {props.currentGrid.map((row, xCord) => {
                 return row.map((cellColor, yCord) => {
-                       return  <Cell key={`${xCord}${yCord}`} xCord={xCord} yCord={yCord} cellColor={cellColor} paintCell={props.paintCell} />
+                       return  <Cell currentColor={props.currentColor} key={`${xCord}${yCord}`} xCord={xCord} yCord={yCord} cellColor={cellColor} paintCell={props.paintCell} />
                 }
                   )
           })}
