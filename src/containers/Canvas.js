@@ -6,13 +6,7 @@ import {grid1, grid2} from './grid.js'
 class Canvas extends React.Component {
   
    state = {
-       currentGrid: [
-        ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
-        ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
-        ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
-        ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
-        ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"]
-],
+       currentGrid: grid2,
        currentColor: "#0000FF"
    }
 
