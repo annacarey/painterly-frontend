@@ -9,15 +9,15 @@ class MainContainer extends React.Component {
     state = {
         paintings: []
     }
-    componentDidMount() {
-        fetch('http://localhost:3000/paintings')
-        .then((response) => {
-            return response.json();
-        })
-        .then((paintings) => {
-            console.log("all paintings:", paintings);
-        });
-    }
+    // componentDidMount() {
+    //     fetch('http://localhost:3000/paintings')
+    //     .then((response) => {
+    //         return response.json();
+    //     })
+    //     .then((paintings) => {
+    //         console.log("all paintings:", paintings);
+    //     });
+    // }
   
     render() {
         return (

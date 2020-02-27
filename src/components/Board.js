@@ -5,6 +5,7 @@ import './Board.css';
 function Board (props) {
    
         return (
+        <div>
         <div className="board"> 
           {props.currentGrid.map((row, xCord) => {
                 return row.map((cellColor, yCord) => {
@@ -12,6 +13,7 @@ function Board (props) {
                 }
                   )
           })}
+        </div>
         </div>
         )
     
