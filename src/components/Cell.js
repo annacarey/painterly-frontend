@@ -1,21 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Board.css';
 
 function Cell (props) {
 
-    const [backgroundColor, setBackground]
+    //hooks for redux
+    const [backgroundColor, setBackground] = useState("#ffffff")
 
-    const setBackground = {
-        backgroundColor: props.cellColor
-    }
+    // const backgroundColor = {
+    //     backgroundColor: props.cellColor
+    // }
 
-    const handleClick = () => {
-        props.paintCell(props.xCord, props.yCord)
+    const handleHover = () => {
+        //using the hook (for redux)
+        setBackground(props.currentColor)
+        // props.paintCell(props.xCord, props.yCord)
     }
 
     return (
-    <div onMouseOver={handleClick} className="cell" style={setBackground}>
         
+    <div onMouseOver={handleHover} className="cell" style={{backgroundColor}}>
+
     </div>
     )
     
