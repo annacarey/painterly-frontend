@@ -1,7 +1,8 @@
 import React from 'react';
 import Board from '../components/Board'
 import Toolbar from '../components/Toolbar'
-import {grid1, grid2} from './grid.js'
+import './Containers.css';
+import {grid1, grid2, grid3} from './grid.js'
 
 class Canvas extends React.Component {
   
@@ -23,10 +24,7 @@ class Canvas extends React.Component {
             return {currentGrid: newGrid}
         }) 
     }
-    // //    
-    // // this.state.currentGrid[xCoordinate][yCoordinate] = this.state.currentColor
-    //     console.log("paint cell", xCoordinate, yCoordinate)
-  
+
    setColorOnClick = (color) => {
        this.setState({currentColor: color})
    }
@@ -34,9 +32,11 @@ class Canvas extends React.Component {
    
     render() {
         return (
-        <div>
-           <Board currentGrid={this.state.currentGrid} paintCell = {this.paintCell}/>
-           <Toolbar setColor={this.setColorOnClick} currentColor={this.state.currentColor}/>
+        <div className="canvas">
+            <div className="toolbar">
+                <Toolbar setColor={this.setColorOnClick} currentColor={this.state.currentColor}/>
+            </div>
+            <Board currentGrid={this.state.currentGrid} paintCell = {this.paintCell}/>
         </div>
         )
     }

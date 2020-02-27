@@ -3,6 +3,8 @@ import './Board.css';
 
 function Cell (props) {
 
+    const [backgroundColor, setBackground]
+
     const setBackground = {
         backgroundColor: props.cellColor
     }
@@ -12,7 +14,7 @@ function Cell (props) {
     }
 
     return (
-    <div onClick={handleClick} className="cell" style={setBackground}>
+    <div onMouseOver={handleClick} className="cell" style={setBackground}>
         
     </div>
     )
@@ -20,3 +22,6 @@ function Cell (props) {
 }
 
 export default Cell;
+
+// React drag and drop:
+// https://react-dnd.github.io/react-dnd/about

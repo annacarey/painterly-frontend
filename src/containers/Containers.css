@@ -1,0 +1,42 @@
+.canvas {
+    display: flex;
+    margin-left: 10px;
+}
+
+.dashboard {
+    display: flex;
+    margin: 10px
+}
+
+.toolbar {
+    margin-right: 10px
+}
+
+.app {
+    display: flex;
+    flex-direction: row-reverse
+}
+
+.navbar {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+    border-bottom: solid;
+    border-width: 2px;
+}
+
+.nav-links {
+    display: flex;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+}
+
+.nav-links:hover {
+    background-color: pink;
+}
+
+#welcome {
+    text-align: center
+}
