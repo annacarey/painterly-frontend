@@ -2,6 +2,8 @@ import React from 'react';
 
 function Toolbar (props) {
 
+   
+ 
     const userId = props.user.id
     function submitPainting() {
         
@@ -17,7 +19,7 @@ function Toolbar (props) {
         )
         .then(resp => resp.json())
         .then(paintingdata => console.log(paintingdata, 'is this it'))
-    }
+        }
     
     return (
         <div> 
@@ -30,11 +32,17 @@ function Toolbar (props) {
         <div onClick={() => props.setColor("purple")} className="square">Purple</div>
         <div onClick={() => props.setColor("white")} className="square">Eraser</div>
 
+        <input type="text" value={}/>
+        <input type="submit" Submit />
         <button onClick={submitPainting}> Save Painting </button>
+        
+        
 
         </div>
     )
 
 }
+
+
 
 export default Toolbar;
