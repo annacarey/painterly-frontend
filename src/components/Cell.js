@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import './Board.css';
 
-function Cell (props) {
+const Cell = React.memo((props) =>  {
 
     //hooks for redux
     const [backgroundColor, setBackground] = useState("#ffffff")
 
     // const backgroundColor = {
     //     backgroundColor: props.cellColor
-    // }
+    // }  
 
     const handleHover = () => {
         //using the hook (for redux)
@@ -17,13 +17,14 @@ function Cell (props) {
     }
 
     return (
-        
+ 
     <div onMouseOver={handleHover} className="cell" style={{backgroundColor}}>
 
+  
     </div>
     )
     
-}
+}) 
 
 export default Cell;
 
