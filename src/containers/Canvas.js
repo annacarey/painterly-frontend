@@ -31,6 +31,7 @@ class Canvas extends React.Component {
 
    
     render() {
+        console.log(this.props.user, 'canvas')
         return (
         <div className="canvas">
             <div className="toolbar">

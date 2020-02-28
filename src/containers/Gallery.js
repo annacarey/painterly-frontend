@@ -15,9 +15,9 @@ function Gallery (props) {
         // console.log('did i get the paintings', this.props.paintings)
         return (
         <div>
-        <div>
-                {renderedBoards}
-        </div>
+            <div>
+                    {renderedBoards}
+            </div>
         </div>
         )
    
