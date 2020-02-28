@@ -3,6 +3,7 @@ import Cell from './Cell';
 import './Board.css';
 
 function Board (props) {
+
         return (
         <div>
         <div className="board"> 
