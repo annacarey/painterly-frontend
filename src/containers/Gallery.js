@@ -1,16 +1,27 @@
 import React from 'react';
+import Board from '../components/Board'
 
-class Gallery extends React.Component {
-  
+function Gallery (props) {
     
+    let renderedBoards = props.paintings.map(painting => {
+        return <div>
+            <h1>{painting.title}</h1>
+            <Board allBoards={'all'} currentGrid={painting.grid}/>
+         
+        </div>
+    })
   
-    render() {
+  
+        // console.log('did i get the paintings', this.props.paintings)
         return (
         <div>
-            
+        <div>
+                {renderedBoards}
+        </div>
         </div>
         )
-    }
+   
 }
+
 
 export default Gallery;
