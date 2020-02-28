@@ -16,12 +16,18 @@ const Cell = React.memo(function Cell (props) {
     }
 
     return (
+
         
     <div onMouseOver={handleHover} className="cell" style={setBackground}>
     </div>
     )
     
 })
+
+ 
+
+
+  
 
 export default Cell;
 
