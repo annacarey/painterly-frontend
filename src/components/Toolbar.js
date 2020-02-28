@@ -16,7 +16,7 @@ function Toolbar (props) {
         })}
         )
         .then(resp => resp.json())
-        .then(paintingdata => console.log(paintingdata, 'is this it'))
+        .then(paintingdata => console.log(paintingdata, 'successfully saved painting'))
     }
     
     return (
