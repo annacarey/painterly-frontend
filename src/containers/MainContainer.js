@@ -43,7 +43,7 @@ class MainContainer extends React.Component {
         <div>
             <Welcome getUser={this.getUser}/>
             <Dashboard userCollections={userCollections} userPaintings={userPaintings} user={this.state.user}/>
-            <Gallery paintings={this.state.paintings} />
+            <Gallery userCollections={userCollections} paintings={this.state.paintings} />
         </div>
         )
     }
