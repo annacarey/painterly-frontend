@@ -1,6 +1,6 @@
 import React from 'react';
 import Cell from './Cell';
-import './Board.css';
+import './Components.css';
 
 function Board (props) {
 
@@ -22,6 +22,7 @@ function Board (props) {
 export default Board;
 
 Board.defaultProps = {
+        paintCell: () => null,
         currentColor: "#0000FF",
         currentGrid:  [
                 ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
