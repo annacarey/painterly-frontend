@@ -41,7 +41,7 @@ class Canvas extends React.Component {
                     currentColor={this.state.currentColor}
                     user={this.props.user}/>
             </div>
-            <Board currentColor={this.state.currentColor} currentGrid={this.state.currentGrid} paintCell ={this.paintCell}/>
+            <Board boardSize="large" currentColor={this.state.currentColor} currentGrid={this.state.currentGrid} paintCell ={this.paintCell}/>
         </div>
         )
     }
