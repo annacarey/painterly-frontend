@@ -11,11 +11,11 @@ function submitPainting() {
     body: JSON.stringify({
         title: "nothing",
         grid: props.currentGrid,
-        user_id: 3
+        user_id: 11
     })}
     )
     .then(resp => resp.json())
-    .then(paintingdata => console.log(paintingdata, 'is this it'))
+    .then(paintingdata => console.log(paintingdata, 'POST SUCCESSFULL'))
 }
     
 return (

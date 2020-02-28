@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import './Board.css';
 
 const Cell = React.memo(function Cell (props) {
-    console.log(props)
+
+    console.log(props.paintCell, 'here')
     //hooks for redux
     // const [backgroundColor, setBackground] = useState("#ffffff")
     const setBackground = {
