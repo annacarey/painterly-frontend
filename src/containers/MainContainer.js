@@ -30,7 +30,7 @@ class MainContainer extends React.Component {
         <div>
             <Welcome getUser={this.getUser}/>
             <Dashboard userPaintings={userPaintings} user={this.state.user}/>
-            <Gallery />
+            <Gallery paintings={this.state.paintings} />
         </div>
         )
     }

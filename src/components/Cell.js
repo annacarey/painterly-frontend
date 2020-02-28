@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './Components.css';
 
 const Cell = React.memo(function Cell (props) {
+
     //hooks for redux
     // const [backgroundColor, setBackground] = useState("#ffffff")
     const setBackground = {
