@@ -1,11 +1,20 @@
+
+.dashboard {
+    display: flex;
+    margin: 10px
+}
+
+.main-page {
+    
+}
+
 .canvas {
     display: flex;
     margin-left: 10px;
 }
 
-.dashboard {
-    display: flex;
-    margin: 10px
+.myGallery {
+    display: flex
 }
 
 .toolbar {

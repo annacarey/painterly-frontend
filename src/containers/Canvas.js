@@ -35,7 +35,11 @@ class Canvas extends React.Component {
         <div className="canvas">
             <div className="toolbar">
                 <Toolbar 
-                currentGrid={this.state.currentGrid} paintCell={this.paintCell} setColor={this.setColorOnClick} currentColor={this.state.currentColor}/>
+                    currentGrid={this.state.currentGrid} 
+                    paintCell={this.paintCell} 
+                    setColor={this.setColorOnClick} 
+                    currentColor={this.state.currentColor}
+                    user={this.props.user}/>
             </div>
             <Board currentColor={this.state.currentColor} currentGrid={this.state.currentGrid} paintCell ={this.paintCell}/>
         </div>
