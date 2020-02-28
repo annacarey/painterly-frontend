@@ -3,25 +3,18 @@ import './Components.css';
 
 const Cell = React.memo(function Cell (props) {
 
-    //hooks for redux
-    // const [backgroundColor, setBackground] = useState("#ffffff")
     const setBackground = {
         backgroundColor: props.cellColor
     }
 
     const handleHover = () => {
-        //using the hook (for redux)
-        // setBackground(props.currentColor)
         props.paintCell(props.xCord, props.yCord)
     }
 
     return (
-
-        
-    <div onMouseOver={handleHover} className="cell" style={setBackground}>
-    </div>
+        <div onMouseOver={handleHover} className={props.cellSize==="large"? "cell" : "small-cell"} style={setBackground}>
+        </div>
     )
-    
 })
 
  

@@ -9,12 +9,12 @@
 }
 
 .canvas {
-    display: flex;
+    /* display: flex; */
     margin-left: 10px;
 }
 
 .myGallery {
-    display: flex
+    /* display: flex */
 }
 
 .toolbar {
@@ -22,21 +22,21 @@
 }
 
 .app {
-    display: flex;
-    flex-direction: row-reverse
+    /* display: flex;
+    flex-direction: row-reverse */
 }
 
 .navbar {
     margin-top: 10px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
 
     border-bottom: solid;
     border-width: 2px;
 }
 
 .nav-links {
-    display: flex;
+    /* display: flex; */
     border-style: solid;
     border-width: 2px;
     padding: 10px;

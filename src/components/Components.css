@@ -3,9 +3,24 @@
     height: 80px;
 }
 
+.small-cell {
+    width: 30px;
+    height: 30px;
+}
+
 .login {
     display: flex;
     margin: 10px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: grey;
+    width: 300px;
+    height: 300px;
+    border-style: solid;
+    border-color: black
 }
 
 .board {
