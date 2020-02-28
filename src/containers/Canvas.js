@@ -7,8 +7,8 @@ import {grid1, grid2, grid3} from './grid.js'
 class Canvas extends React.Component {
   
    state = {
-       currentGrid: grid3,
-       currentColor: "#0000FF"
+       currentGrid: grid2,
+       currentColor: "#FFFFFF"
    }
 
    paintCell = (xCoordinate, yCoordinate) => {
@@ -34,9 +34,10 @@ class Canvas extends React.Component {
         return (
         <div className="canvas">
             <div className="toolbar">
-                <Toolbar currentGrid={this.state.currentGrid} paintCell={this.paintCell} setColor={this.setColorOnClick} currentColor={this.state.currentColor}/>
+                <Toolbar 
+                currentGrid={this.state.currentGrid} paintCell={this.paintCell} setColor={this.setColorOnClick} currentColor={this.state.currentColor}/>
             </div>
-            <Board currentColor={this.state.currentColor} currentGrid={this.state.currentGrid} paintCell = {this.paintCell}/>
+            <Board currentColor={this.state.currentColor} currentGrid={this.state.currentGrid} paintCell ={this.paintCell}/>
         </div>
         )
     }

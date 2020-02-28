@@ -3,13 +3,12 @@ import Cell from './Cell';
 import './Board.css';
 
 function Board (props) {
-   
         return (
         <div>
         <div className="board"> 
           {props.currentGrid.map((row, xCord) => {
                 return row.map((cellColor, yCord) => {
-                       return  <Cell currentColor={props.currentColor} key={`${xCord}${yCord}`} xCord={xCord} yCord={yCord} cellColor={cellColor} paintCell={props.paintCell} />
+                       return  <Cell cellColor={cellColor} paintCell={props.paintCell} key={`${xCord}${yCord}`} xCord={xCord} yCord={yCord} />
                 }
                   )
           })}

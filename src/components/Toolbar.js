@@ -3,9 +3,6 @@ import React from 'react';
 
 function Toolbar (props) {
 
-
-console.log(props.currentGrid)
-
 function submitPainting() {
     fetch('http://localhost:3000/paintings',{
     method: "POST",
