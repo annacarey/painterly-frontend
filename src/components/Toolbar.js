@@ -3,7 +3,6 @@ import React from 'react';
 function Toolbar (props) {
 
    
- 
     const userId = props.user.id
     function submitPainting() {
         
@@ -18,19 +17,19 @@ function Toolbar (props) {
         })}
         )
         .then(resp => resp.json())
-        .then(paintingdata => console.log(paintingdata, 'is this it'))
-        }
+        .then(paintingdata => console.log(paintingdata, 'successfully saved painting'))
+    }
     
     return (
         <div> 
             
-        <div onClick={() => props.setColor("red")} className="square">Red</div>
-        <div onClick={() => props.setColor("blue")} className="square">Blue</div>
-        <div onClick={() => props.setColor("green")} className="square">Green</div>
-        <div onClick={() => props.setColor("yellow")} className="square">Yellow</div>
-        <div onClick={() => props.setColor("orange")} className="square">Orange</div>
-        <div onClick={() => props.setColor("purple")} className="square">Purple</div>
-        <div onClick={() => props.setColor("white")} className="square">Eraser</div>
+            <div onClick={() => props.setColor("red")} className="square">Red</div>
+            <div onClick={() => props.setColor("blue")} className="square">Blue</div>
+            <div onClick={() => props.setColor("green")} className="square">Green</div>
+            <div onClick={() => props.setColor("yellow")} className="square">Yellow</div>
+            <div onClick={() => props.setColor("orange")} className="square">Orange</div>
+            <div onClick={() => props.setColor("purple")} className="square">Purple</div>
+            <div onClick={() => props.setColor("white")} className="square">Eraser</div>
 
         <input type="text" value={}/>
         <input type="submit" Submit />

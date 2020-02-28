@@ -12,9 +12,16 @@ class Dashboard extends React.Component {
             <h1>Create your drawing below</h1>
             <div className="dashboard">
                 <Canvas user={this.props.user}/>
-                <div className="myGallery">
+                <div className="myPaintings">
+                    <h1>My Paintings:</h1>
                     {this.props.userPaintings.map(painting => {
-                        return <Board currentGrid={painting.grid}/>
+                        return <Board boardSize="small" currentGrid={painting.grid}/>
+                    })}
+                </div>
+                <div className="myCollections">
+                    <h1>My Collections: </h1>
+                    {this.props.userCollections.map(collection => {
+                        return <h3>{collection.title}</h3>
                     })}
                 </div>
             </div>
