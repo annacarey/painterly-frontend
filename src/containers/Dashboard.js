@@ -6,12 +6,11 @@ import './Containers.css';
 class Dashboard extends React.Component {
   
     render() {
-        console.log(this.props.userPaintings)
         return (
         <div className="main-page">
-            <h1>Create your drawing below</h1>
+            <h1 className="create-drawing">Create your drawing below</h1>
             <div className="dashboard">
-                <Canvas user={this.props.user}/>
+                <Canvas user={this.props.user} addPainting={this.props.addPainting} />
                 <div className="myPaintings">
                     <h1>My Paintings:</h1>
                     {this.props.userPaintings.map(painting => {

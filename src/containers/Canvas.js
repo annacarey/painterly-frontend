@@ -31,17 +31,15 @@ class Canvas extends React.Component {
 
    
     render() {
-        console.log(this.props.user, 'canvas')
         return (
         <div className="canvas">
-            <div className="toolbar">
-                <Toolbar 
-                    currentGrid={this.state.currentGrid} 
-                    paintCell={this.paintCell} 
-                    setColor={this.setColorOnClick} 
-                    currentColor={this.state.currentColor}
-                    user={this.props.user}/>
-            </div>
+            <Toolbar 
+                currentGrid={this.state.currentGrid} 
+                paintCell={this.paintCell} 
+                setColor={this.setColorOnClick} 
+                currentColor={this.state.currentColor}
+                user={this.props.user}
+                addPainting={this.props.addPainting}/>
             <Board boardSize="large" currentColor={this.state.currentColor} currentGrid={this.state.currentGrid} paintCell ={this.paintCell}/>
         </div>
         )
