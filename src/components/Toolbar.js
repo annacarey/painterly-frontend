@@ -5,7 +5,6 @@ function Toolbar (props) {
    
     const userId = props.user.id
     function submitPainting() {
-        
         fetch('http://localhost:3000/paintings',{
         method: "POST",
         headers: {'content-type': 'application/json',
@@ -17,21 +16,23 @@ function Toolbar (props) {
         })}
         )
         .then(resp => resp.json())
-        .then(paintingdata => console.log(paintingdata, 'successfully saved painting'))
+        .then(paintingData => {
+            props.addPainting(paintingData)
+        })
     }
     
     return (
-        <div> 
+        <div className="toolbar"> 
             
+            <div onClick={() => props.setColor("white")} className="square">Eraser</div>
             <div onClick={() => props.setColor("red")} className="square">Red</div>
             <div onClick={() => props.setColor("blue")} className="square">Blue</div>
             <div onClick={() => props.setColor("green")} className="square">Green</div>
             <div onClick={() => props.setColor("yellow")} className="square">Yellow</div>
             <div onClick={() => props.setColor("orange")} className="square">Orange</div>
             <div onClick={() => props.setColor("purple")} className="square">Purple</div>
-            <div onClick={() => props.setColor("white")} className="square">Eraser</div>
 
-        <input type="text" value={}/>
+        <input type="text" value={null}/>
         <input type="submit" Submit />
         <button onClick={submitPainting}> Save Painting </button>
         
