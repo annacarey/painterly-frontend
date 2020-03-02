@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import Board from '../components/Board'
+import Board from '../components/Board';
+import { Link } from 'react-router-dom';
 
 function CollectionsList ({collections, addCollection}) {
     
@@ -19,16 +20,21 @@ function CollectionsList ({collections, addCollection}) {
                 <input type="submit" value="Create"></input>
             </form>
         </div>
-    }
+        }
+        
+    const renderCollections = Object.keys(collections).map(collectionID => <Link key={collectionID} to={`/dashboard/collections/${collectionID}`}>{collections[collectionID].title}</Link>)
+
     return (
         <div className="myCollections">
             <h1>My Collections:</h1>
             {renderCollectionForm()}
-            {collections.map(collection=> {
-                        return <h3>{collection.title}</h3>
-            })}
+            {renderCollections}
         </div>
     )
 }
 
 export default CollectionsList;
+
+// {collections.map(collection=> {
+//     return <h3>{collection.title}</h3>
+// })}
