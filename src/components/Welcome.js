@@ -51,6 +51,7 @@ class Welcome extends React.Component  {
                 console.log(newUser)
             })
         }
+        this.props.history.push("/dashboard")
     }
 
     handleClick = () => [
