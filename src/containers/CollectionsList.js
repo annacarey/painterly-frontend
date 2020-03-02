@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import Board from '../components/Board'
 
-function CollectionsList ({collections, addCollection}) {
+function CollectionsList ({collections, addCollection, paintingCollections}) {
+    console.log(paintingCollections)
     
     const [title, setTitle] = useState("");
 
@@ -25,7 +26,7 @@ function CollectionsList ({collections, addCollection}) {
             <h1>My Collections:</h1>
             {renderCollectionForm()}
             {collections.map(collection=> {
-                        return <h3>{collection.title}</h3>
+                return <h3>{collection.title}</h3>
             })}
         </div>
     )
