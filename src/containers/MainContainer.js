@@ -44,7 +44,6 @@ class MainContainer extends React.Component {
     }
 
     addCollection = (title) => {
-        console.log(this.state.user.id)
         fetch('http://localhost:3000/collections',{
         method: "POST",
         headers: {'content-type': 'application/json',
@@ -60,6 +59,23 @@ class MainContainer extends React.Component {
             this.setState(prevState => {
                 return {collections: [...prevState.collections, newCollection]}
             })
+        })
+    }
+
+    addPaintingtoCollection = (paintingId, collectionTitle) => {
+        const collectionId = this.state.collections.filter(collection => collection.title === collectionTitle)[0].id
+        fetch(`http://localhost:3000/painting_collections/`,{
+        method: "POST",
+        headers: {'content-type': 'application/json',
+                accepts: 'application/json'},
+        body: JSON.stringify({
+            collection_id: collectionId,
+            painting_id: paintingId
+        })}
+        )
+        .then(resp => resp.json())
+        .then(newPaintingCollection => {
+            console.log(newPaintingCollection)
         })
     }
   
@@ -78,7 +94,7 @@ class MainContainer extends React.Component {
             />
             <Route 
                 exact path='/gallery'
-                render={props => <Gallery {...props} user={this.state.user} userCollections={userCollections} paintings={this.state.paintings} />}
+                render={props => <Gallery {...props} user={this.state.user} userCollections={userCollections} paintings={this.state.paintings} addPaintingtoCollection={this.addPaintingtoCollection} />}
             />
         </Switch>
 

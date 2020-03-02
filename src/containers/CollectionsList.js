@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import Board from '../components/Board'
-import './Components.css';
 
-function MyStuff ({paintings, listItems, addCollection}) {
+function CollectionsList ({collections, addCollection}) {
     
     const [title, setTitle] = useState("");
 
@@ -22,17 +21,14 @@ function MyStuff ({paintings, listItems, addCollection}) {
         </div>
     }
     return (
-        <div className={paintings? "myPaintings" : "myCollections"}>
-            <h1>{paintings? "My Paintings:" : "My Collections:"} </h1>
-            {!paintings && renderCollectionForm()}
-            {listItems.map(listItem => {
-                        return paintings? <Board boardSize="small" currentGrid={listItem.grid} ></Board> : <h3>{listItem.title}</h3>
+        <div className="myCollections">
+            <h1>My Collections:</h1>
+            {renderCollectionForm()}
+            {collections.map(collection=> {
+                        return <h3>{collection.title}</h3>
             })}
         </div>
     )
 }
 
-
-  
-
-export default MyStuff;
+export default CollectionsList;
