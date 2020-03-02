@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import Board from '../components/Board';
 import { Link } from 'react-router-dom';
 
-function CollectionsList ({collections, addCollection}) {
+function CollectionsList ({collections, addCollection, paintingCollections}) {
+    console.log(paintingCollections)
     
     const [title, setTitle] = useState("");
 
@@ -28,7 +29,13 @@ function CollectionsList ({collections, addCollection}) {
         <div className="myCollections">
             <h1>My Collections:</h1>
             {renderCollectionForm()}
+<<<<<<< HEAD
             {renderCollections}
+=======
+            {collections.map(collection=> {
+                return <h3>{collection.title}</h3>
+            })}
+>>>>>>> collections1
         </div>
     )
 }
