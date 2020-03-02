@@ -29,14 +29,12 @@ class Welcome extends React.Component  {
                 const user = users.filter(user => user.username === this.state.username)[0]
                 if (!user) {
                     this.setState(() => {return {noUserFoundToggle: true}})
-                    console.log(this.state.noUserFoundToggle)
                 } else {
                     this.props.getUser(user)
                     this.setState(() => {return {noUserFoundToggle: false}})
                 }
             })
         } else if (e.target.name === "signup") {
-            console.log("We are int eh signup fetch")
             fetch('http://localhost:3000/users',{
             method: "POST",
             headers: {'content-type': 'application/json',
@@ -48,7 +46,7 @@ class Welcome extends React.Component  {
             )
             .then(resp => resp.json())
             .then(newUser => {
-                console.log(newUser)
+                this.props.getUser(newUser)
             })
         }
         this.props.history.push("/dashboard")

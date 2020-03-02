@@ -37,6 +37,7 @@ function Gallery (props) {
     }
 
     return (
+        
         props.paintings.map(painting => {
             return <div>
                 <h1>{painting.title}</h1>
