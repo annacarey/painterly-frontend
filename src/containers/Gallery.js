@@ -3,36 +3,22 @@ import Board from '../components/Board'
 
 function Gallery (props) {
 
+    const [collection, setCollection] = useState("")
 
-    const [collectionToggle, setCollectionToggle] = useState(false);
-
-    const handleClick = () => {
-        setCollectionToggle(!collectionToggle)
+    const handleChange = () => {
+        
     }
 
-    // const handleChange = (id) => {
-    //     fetch('http://localhost:3000/collections',{
-    //     method: "PATCH",
-    //     headers: {'content-type': 'application/json',
-    //             accepts: 'application/json'},
-    //     body: JSON.stringify({
-    //         title: "nothing",
-    //         grid: props.currentGrid,
-    //         user_id: userId
-    //     })}
-    //     )
-    //     .then(resp => resp.json())
-    //     .then(paintingdata => console.log(paintingdata, 'successfully saved painting'))
-    // }
-    // }
-
-    const showCollections = (collections) => {
+    const addToCollectionOption = (collections) => {
         return(
-            <select onChange={null}> 
-                {collections.map(collection => {
-                    return <option>{collection.title}</option>
-                })}
-            </select>
+            <form>
+                <select onChange={null}> 
+                    {collections.map(collection => {
+                        return <option>{collection.title}</option>
+                    })}
+                </select>
+                <input type="submit" value="Add to Collection"></input>
+            </form>
         )
     }
 
@@ -42,8 +28,7 @@ function Gallery (props) {
             return <div>
                 <h1>{painting.title}</h1>
                 <Board boardSize='small' currentGrid={painting.grid}/>
-                <button onClick={handleClick}>Add to Collection</button>
-                {collectionToggle? showCollections(props.userCollections) : null}
+                {props.user!=="" && addToCollectionOption(props.userCollections)}
             </div>
         })
     )

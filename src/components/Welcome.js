@@ -26,6 +26,7 @@ class Welcome extends React.Component  {
                 return response.json()
             })
             .then((users) => {
+                console.log(users)
                 const user = users.filter(user => user.username === this.state.username)[0]
                 if (!user) {
                     this.setState(() => {return {noUserFoundToggle: true}})
