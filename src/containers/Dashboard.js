@@ -18,7 +18,10 @@ class Dashboard extends React.Component {
                 <div className="myPaintings">
                     <h1>My Paintings:</h1>
                     {this.props.userPaintings.map(painting => {
-                        return <Board boardSize="small" currentGrid={painting.grid}/>
+                    return <div>
+                        <h2>{painting.title}</h2>
+                    <Board boardSize="small" currentGrid={painting.grid}/>
+                    </div>
                     })}
                 </div>
                 <div className="myCollections">

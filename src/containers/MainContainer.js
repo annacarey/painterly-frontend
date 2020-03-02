@@ -1,6 +1,7 @@
 import React from 'react';
 import Gallery from './Gallery'
 import Dashboard from './Dashboard'
+import Collections from '../components/Collections'
 import Welcome from '../components/Welcome'
 import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
 
@@ -20,6 +21,7 @@ class MainContainer extends React.Component {
             return response.json();
         })
         .then((paintings) => {
+            console.log('here')
             this.setState({paintings})
         })
 
@@ -44,6 +46,7 @@ class MainContainer extends React.Component {
     }
   
     render() {
+        console.log(this.state.paintings)
         const userPaintings = this.state.paintings.filter(painting => painting.user_id ===this.state.user.id)
         const userCollections = this.state.collections.filter(collection => collection.user_id ===this.state.user.id)
         return (
@@ -59,6 +62,10 @@ class MainContainer extends React.Component {
             <Route 
                 exact path='/gallery'
                 render={props => <Gallery {...props} userCollections={userCollections} paintings={this.state.paintings} />}
+            />
+            <Route 
+                exact path='/collections'
+                render={props => <Collections {...props} userCollections={userCollections} paintings={this.state.paintings} />}
             />
             
         </Switch>

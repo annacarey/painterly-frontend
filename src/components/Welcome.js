@@ -5,9 +5,7 @@ class Welcome extends React.Component  {
 
     state = {
         username: "",
-        password: "",
-        signupToggle: false,
-        noUserFoundToggle: false
+        password: ""
     }
 
     handleChange = (e) => {
@@ -28,13 +26,14 @@ class Welcome extends React.Component  {
             .then((users) => {
                 const user = users.filter(user => user.username === this.state.username)[0]
                 if (!user) {
-                    this.setState(() => {return {noUserFoundToggle: true}})
+                    alert('Not an existing user')
                 } else {
                     this.props.getUser(user)
-                    this.setState(() => {return {noUserFoundToggle: false}})
+                    this.props.history.push("/dashboard")
                 }
             })
-        } else if (e.target.name === "signup") {
+        } if (e.target.name === "signup" && this.state.username !== "") {
+
             fetch('http://localhost:3000/users',{
             method: "POST",
             headers: {'content-type': 'application/json',
@@ -46,15 +45,20 @@ class Welcome extends React.Component  {
             )
             .then(resp => resp.json())
             .then(newUser => {
+                console.log(newUser)
                 this.props.getUser(newUser)
+                this.props.history.push("/dashboard")
             })
         }
-        this.props.history.push("/dashboard")
+        else if (e.target.name === "signup" && this.state.username === "") {
+            alert('Must submit username')
+        }
+        // this.props.history.push("/dashboard")
     }
 
-    handleClick = () => [
-        this.setState(prevState => {return {signupToggle: !prevState.signupToggle}})
-    ]
+    // handleClick = () => [
+    //     this.setState(prevState => {return {signupToggle: !prevState.signupToggle}})
+    // ]
 
     displaySignupForm = 
         <div className="signup-form">
@@ -76,7 +80,6 @@ class Welcome extends React.Component  {
                 <input onClick={this.handleFormClick} type="submit" name="signup" value="Sign up"/>
             </form>
             <br></br>
-            {this.state.noUserFoundToggle && <p className="error">Username and/or password incorrect</p>}
             <br></br>
         </div>
         )
