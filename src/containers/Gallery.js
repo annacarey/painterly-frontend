@@ -3,16 +3,22 @@ import Board from '../components/Board'
 
 function Gallery (props) {
 
-    const [collection, setCollection] = useState("")
+    const [collection, setCollection] = useState(props.user!==""? props.userCollections[0].title : "")
 
-    const handleChange = () => {
-        
+    const handleChange = (e) => {
+        setCollection(e.target.value)
     }
 
-    const addToCollectionOption = (collections) => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const paintingId = parseInt(e.target.name)
+        props.addPaintingtoCollection(paintingId, collection)
+    }
+
+    const addToCollectionOption = (collections, painting) => {
         return(
-            <form>
-                <select onChange={null}> 
+            <form onSubmit={handleSubmit} name={painting.id}>
+                <select onChange={handleChange}> 
                     {collections.map(collection => {
                         return <option>{collection.title}</option>
                     })}
@@ -28,7 +34,7 @@ function Gallery (props) {
             return <div>
                 <h1>{painting.title}</h1>
                 <Board boardSize='small' currentGrid={painting.grid}/>
-                {props.user!=="" && addToCollectionOption(props.userCollections)}
+                {props.user!=="" && addToCollectionOption(props.userCollections, painting)}
             </div>
         })
     )
