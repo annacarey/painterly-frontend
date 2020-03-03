@@ -2,7 +2,6 @@ import React from 'react';
 import Canvas from './Canvas'
 import Board from '../components/Board'
 import CollectionsList from './CollectionsList'
-import CollectionShow from '../components/CollectionShow'
 import PaintingsList from './PaintingsList'
 import './Containers.css';
 import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
@@ -15,9 +14,9 @@ class Dashboard extends React.Component {
             <Switch>
                 <Route 
                         path={`${this.props.match.path}/collections`}
-                        render = {() =>  <CollectionsList paintingCollections={this.props.paintingCollections} addCollection={this.props.addCollection} collections={this.props.userCollections}/>}
+
+                        render = {(routerProps) =>  <CollectionsList {...routerProps} addCollection={this.props.addCollection} collections={this.props.userCollections}/>}
                 />
-                <Route exact path={`${this.props.match.url}/:collectionId`} render={routerProps => <CollectionShow {...routerProps} collections={this.props.userCollections} /> } />
 
                 <Route 
                         path={`${this.props.match.path}/paintings`}
