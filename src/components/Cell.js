@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import './Components.css';
 
 const Cell = React.memo(function Cell (props) {
-
     const setBackground = {
         backgroundColor: props.cellColor
     }
@@ -15,12 +14,7 @@ const Cell = React.memo(function Cell (props) {
         <div onMouseOver={handleHover} className={props.cellSize==="large"? "cell" : "small-cell"} style={setBackground}>
         </div>
     )
-})
-
- 
-
-
-  
+})  
 
 export default Cell;
 

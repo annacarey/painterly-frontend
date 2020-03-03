@@ -9,12 +9,13 @@ import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom
 class Dashboard extends React.Component {
   
     render() {
+        const currentPainting = this.props.history.location.state && this.props.history.location.state.currentPainting
         return (
         <div className="main-page">
             <Switch>
                 <Route 
                         path={`${this.props.match.path}/collections`}
-                        render = {(routerProps) =>  <CollectionsList {...routerProps} paintings={this.props.paintings} addCollection={this.props.addCollection} collections={this.props.userCollections} paintingCollections={this.props.paintingCollections} userPaintings={this.props.userPaintings} />}
+                        render = {(routerProps) =>  <CollectionsList {...routerProps} paintings={this.props.paintings} addCollection={this.props.addCollection} collections={this.props.userCollections} userPaintings={this.props.userPaintings} />}
                 />
 
                 <Route 
@@ -26,7 +27,7 @@ class Dashboard extends React.Component {
                         render = {(props) =>  
                             <div className="dashboard">
                                 <h1 className="create-drawing">Create your drawing below</h1>
-                                <Canvas {...props} user={this.props.user} addPainting={this.props.addPainting} />
+                                <Canvas {...props} currentPainting={currentPainting} user={this.props.user} addPainting={this.props.addPainting} />
                         </div>
                         }
                 />

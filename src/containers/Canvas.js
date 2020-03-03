@@ -11,6 +11,10 @@ class Canvas extends React.Component {
        currentColor: "#FFFFFF"
    }
 
+   componentDidMount() {
+        this.props.currentPainting && this.setState({currentGrid: this.props.currentPainting.grid})
+   }
+
    paintCell = (xCoordinate, yCoordinate) => {
        const newGrid = this.state.currentGrid.map((row, rowIndex) => {
             return row.map((cell, cellIndex) => {
@@ -31,7 +35,6 @@ class Canvas extends React.Component {
 
    
     render() {
-        console.log(this.props)
         return (
         <div className="canvas">
             <Toolbar 
