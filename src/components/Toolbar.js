@@ -1,16 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function Toolbar (props) {
 
-   
+    const [title, setTitle] = useState("")
+
+    const handleChange = (e) => {
+        setTitle(e.target.value)
+    }
+
     const userId = props.user.id
     function submitPainting() {
-        fetch('http://localhost:3000/paintings',{
+        console.log(title)
+        fetch('http://localhost:3000/paintings', {
         method: "POST",
         headers: {'content-type': 'application/json',
                 accepts: 'application/json'},
         body: JSON.stringify({
-            title: "nothing",
+            title: title,
             grid: props.currentGrid,
             user_id: userId
         })}
@@ -18,6 +24,7 @@ function Toolbar (props) {
         .then(resp => resp.json())
         .then(paintingData => {
             props.addPainting(paintingData)
+            props.history.push("/dashboard/paintings")
         })
     }
     
@@ -32,11 +39,10 @@ function Toolbar (props) {
             <div onClick={() => props.setColor("orange")} className="square">Orange</div>
             <div onClick={() => props.setColor("purple")} className="square">Purple</div>
 
-        <input type="text" value={null}/>
-        <input type="submit" Submit />
+
         <button onClick={submitPainting}> Save Painting </button>
-        
-        
+        <input type="text" onChange={handleChange} value={title}/>
+        <label>Title:</label>
 
         </div>
     )
