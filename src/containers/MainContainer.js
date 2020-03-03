@@ -14,7 +14,6 @@ class MainContainer extends React.Component {
     }
 
     componentDidMount() {
-
         // Get all paintings
         fetch('http://localhost:3000/paintings')
         .then((response) => {
@@ -100,7 +99,7 @@ class MainContainer extends React.Component {
             />
             <Route 
                 path='/dashboard' 
-                render={props => <Dashboard {...props} paintingCollections={this.state.paintingCollections} addPainting={this.addPainting} userCollections={userCollections} userPaintings={userPaintings} user={this.state.user} addCollection={this.addCollection} />}
+                render={props => <Dashboard {...props} paintings={this.state.paintings} paintingCollections={this.state.paintingCollections} addPainting={this.addPainting} userCollections={userCollections} userPaintings={userPaintings} user={this.state.user} addCollection={this.addCollection} />}
             />
             <Route 
                 exact path='/gallery'

@@ -15,7 +15,7 @@ class Dashboard extends React.Component {
                 <Route 
                         path={`${this.props.match.path}/collections`}
 
-                        render = {(routerProps) =>  <CollectionsList {...routerProps} addCollection={this.props.addCollection} collections={this.props.userCollections}/>}
+                        render = {(routerProps) =>  <CollectionsList {...routerProps} paintings={this.props.paintings} addCollection={this.props.addCollection} collections={this.props.userCollections} paintingCollections={this.props.paintingCollections} userPaintings={this.props.userPaintings} />}
                 />
 
                 <Route 
