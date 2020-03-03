@@ -31,9 +31,11 @@ class Canvas extends React.Component {
 
    
     render() {
+        console.log(this.props)
         return (
         <div className="canvas">
             <Toolbar 
+                history = {this.props.history}
                 currentGrid={this.state.currentGrid} 
                 paintCell={this.paintCell} 
                 setColor={this.setColorOnClick} 

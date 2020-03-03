@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 function CollectionsList ({match, collections, addCollection}) {
 
-    
     const [title, setTitle] = useState("");
 
     const handleSubmit = (e) => {
@@ -26,13 +25,7 @@ function CollectionsList ({match, collections, addCollection}) {
         </div>
         }
         
-        
     const renderCollections = collections.map(collection => <Link key={collection.id} to={`/dashboard/collections/${collection.id}`}>{collection.title}</Link>)
-
- 
-
-
-
 
     return (
         <div className="myCollections">
