@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 
 function CollectionsList ({match, collections, addCollection}) {
-    console.log(match.path)
+
     
     const [title, setTitle] = useState("");
 
@@ -40,7 +40,6 @@ function CollectionsList ({match, collections, addCollection}) {
             {renderCollectionForm()}
             {renderCollections}
             <Route exact path={`${match.path}/:collectionId`} render={routerProps => <CollectionShow {...routerProps} collections={collections} /> } />
-
         </div>
     )
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import Canvas from './Canvas'
 import Board from '../components/Board'
 import CollectionsList from './CollectionsList'
-import CollectionShow from '../components/CollectionShow'
 import PaintingsList from './PaintingsList'
 import './Containers.css';
 import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
@@ -15,7 +14,9 @@ class Dashboard extends React.Component {
             <Switch>
                 <Route 
                         path={`${this.props.match.path}/collections`}
+
                         render = {(routerProps) =>  <CollectionsList {...routerProps} addCollection={this.props.addCollection} collections={this.props.userCollections}/>}
+
                 />
 
                 <Route 
