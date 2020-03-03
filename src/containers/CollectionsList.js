@@ -29,13 +29,7 @@ function CollectionsList ({collections, addCollection, paintingCollections}) {
         <div className="myCollections">
             <h1>My Collections:</h1>
             {renderCollectionForm()}
-<<<<<<< HEAD
             {renderCollections}
-=======
-            {collections.map(collection=> {
-                return <h3>{collection.title}</h3>
-            })}
->>>>>>> collections1
         </div>
     )
 }
