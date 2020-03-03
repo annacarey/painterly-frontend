@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import Board from '../components/Board';
-import { Link } from 'react-router-dom';
+import CollectionShow from '../components/CollectionShow'
+import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
-function CollectionsList ({collections, addCollection, paintingCollections}) {
-    console.log(paintingCollections)
+
+
+function CollectionsList ({match, collections, addCollection}) {
+
     
     const [title, setTitle] = useState("");
 
@@ -23,13 +26,20 @@ function CollectionsList ({collections, addCollection, paintingCollections}) {
         </div>
         }
         
-    const renderCollections = Object.keys(collections).map(collectionID => <Link key={collectionID} to={`/dashboard/collections/${collectionID}`}>{collections[collectionID].title}</Link>)
+        
+    const renderCollections = collections.map(collection => <Link key={collection.id} to={`/dashboard/collections/${collection.id}`}>{collection.title}</Link>)
+
+ 
+
+
+
 
     return (
         <div className="myCollections">
             <h1>My Collections:</h1>
             {renderCollectionForm()}
             {renderCollections}
+            <Route exact path={`${match.path}/:collectionId`} render={routerProps => <CollectionShow {...routerProps} collections={collections} /> } />
         </div>
     )
 }

@@ -7,8 +7,12 @@ function PaintingsList ({paintings}) {
         <div className="myPaintings">
             <h1>My Paintings:</h1>
             {paintings.map(painting => {
-                        return <Board boardSize="small" currentGrid={painting.grid} ></Board> 
-            })}
+                        return (
+                        <div>
+                            <h2>{painting.title}</h2>
+                            <Board boardSize="small" currentGrid={painting.grid} ></Board> 
+                        </div>
+            )})}
         </div>
     )
 }
