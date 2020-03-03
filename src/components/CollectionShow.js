@@ -3,34 +3,21 @@ import Board from './Board'
 
 
 const CollectionShow = (props) => {
-        const id = parseInt(props.match.params.collectionId)
-        const targetCollection = (props.collections.find(collection => collection.id === id))
-
-
-
-
-   let paintingCollectionsArr = props.paintingCollections.filter(paintingCollection => paintingCollection.collection_id === id)
-   let paintingArr = paintingCollectionsArr.map(paintingCollection => paintingCollection.painting_id)
-   const paintings = paintingArr.map(paintingId => {
-       return props.paintings.find(painting => painting.id ===paintingId)
-   })
-   console.log(paintings, "all the paintings yay")
- 
-        
+    const id = parseInt(props.match.params.collectionId)
+    const targetCollection = (props.collections.find(collection => collection.id === id))
+    console.log("collection", targetCollection)
     return (
 
-        
         <div>
-            <h2>Collection Show Component</h2>
-            {/* <h2>{targetCollection.title}</h2> */}
-            {targetCollection ?  targetCollection.title : "There are no paintings in the collection yet!"}
+            <br></br>
+            <h3>{targetCollection && targetCollection.title}</h3>
+            <h4>{targetCollection && targetCollection.paintings===[] && "There are no paintings in the collection yet!"}</h4>
             
-            {paintings && paintings.map(painting => {
-                // console.log(painting&& painting.title)
-                return <div>
-                    <h1>{painting && painting.title}</h1>
-                    <Board boardSize='small' currentGrid={painting && painting.grid} />
-                     </div>
+            {targetCollection && targetCollection.paintings.map(painting => {
+            return <div>
+                <h1>{painting && painting.title}</h1>
+                <Board boardSize='small' currentGrid={painting && painting.grid} />
+                    </div>
             })}
 
         </div>

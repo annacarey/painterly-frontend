@@ -1,14 +1,15 @@
-import React, {Redirect} from 'react';
+import React, {useState} from 'react';
 import Board from '../components/Board'
 
 function PaintingsList ({paintings, history}) {
 
+    const [currentPainting, setCurrentPainting] = useState("")
+
     const handleClick = (painting) =>{
-        history.push('/dashboard')
-        // history.push({
-        //     pathname: "/dashboard",
-        //     state: {current_painting: }
-        // })
+        history.push({
+            pathname: "/dashboard",
+            state: {currentPainting: painting}
+        })
     }
 
     return (
@@ -19,7 +20,7 @@ function PaintingsList ({paintings, history}) {
                     <div>
                         <h2>{painting.title}</h2>
                         <Board boardSize="small" currentGrid={painting.grid} ></Board> 
-                        <button onClick={handleClick}>Edit</button>
+                        <button onClick={() => handleClick(painting)}>Edit</button>
                     </div>
             )})}
         </div>

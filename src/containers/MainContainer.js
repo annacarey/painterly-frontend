@@ -10,7 +10,6 @@ class MainContainer extends React.Component {
     state = {
         paintings: [],
         collections: [],
-        paintingCollections: [],
         user: ""
     }
 
@@ -31,15 +30,6 @@ class MainContainer extends React.Component {
         })
         .then((collections) => {
             this.setState({collections})
-        })
-
-        // Get all painting-collection joiners
-        fetch('http://localhost:3000/painting_collections')
-        .then((response) => {
-            return response.json();
-        })
-        .then((paintingCollections) => {
-            this.setState({paintingCollections})
         })
     }
 
@@ -101,7 +91,7 @@ class MainContainer extends React.Component {
                     />
                     <Route 
                         path='/dashboard' 
-                        render={props => <Dashboard {...props} paintings={this.state.paintings} paintingCollections={this.state.paintingCollections} addPainting={this.addPainting} userCollections={userCollections} userPaintings={userPaintings} user={this.state.user} addCollection={this.addCollection} />}
+                        render={props => <Dashboard {...props} paintings={this.state.paintings} addPainting={this.addPainting} userCollections={userCollections} userPaintings={userPaintings} user={this.state.user} addCollection={this.addCollection} />}
                     />
                     <Route 
                         exact path='/gallery'

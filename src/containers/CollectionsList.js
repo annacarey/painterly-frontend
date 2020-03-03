@@ -3,8 +3,7 @@ import Board from '../components/Board';
 import CollectionShow from '../components/CollectionShow'
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
-function CollectionsList ({match, collections, addCollection, paintingCollections, userPaintings, paintings}) {
-
+function CollectionsList ({match, collections, addCollection, userPaintings, paintings}) {
     const [title, setTitle] = useState("");
 
     const handleSubmit = (e) => {
@@ -23,14 +22,15 @@ function CollectionsList ({match, collections, addCollection, paintingCollection
         </div>
         }
         
-    const renderCollections = collections.map(collection => <Link key={collection.id} to={`/dashboard/collections/${collection.id}`}>{collection.title}</Link>)
+    const renderCollections = collections.map(collection => <Link key={collection.id} to={`/dashboard/collections/${collection.id}`}><li>{collection.title}</li></Link>)
 
     return (
         <div className="myCollections">
             <h1>My Collections:</h1>
             {renderCollectionForm()}
+            <br></br>
             {renderCollections}
-            <Route exact path={`${match.path}/:collectionId`} render={routerProps => <CollectionShow {...routerProps} paintings={paintings}  collections={collections} paintingCollections={paintingCollections} userPaintings={userPaintings}/> } />
+            <Route exact path={`${match.path}/:collectionId`} render={routerProps => <CollectionShow {...routerProps} collections={collections} userPaintings={userPaintings}/> } />
         </div>
     )
 }
