@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Gallery from './Gallery'
 import Dashboard from './Dashboard'
 import Welcome from '../components/Welcome'
+import NavBar from '../containers/NavBar'
 import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
 
 class MainContainer extends React.Component {
@@ -65,7 +66,6 @@ class MainContainer extends React.Component {
         )
         .then(resp => resp.json())
         .then(newCollection => {
-            console.log(newCollection)
             this.setState(prevState => {
                 return {collections: [...prevState.collections, newCollection]}
             })
@@ -93,20 +93,23 @@ class MainContainer extends React.Component {
         const userPaintings = this.state.paintings.filter(painting => painting.user_id ===this.state.user.id)
         const userCollections = this.state.collections.filter(collection => collection.user_id ===this.state.user.id)
         return (
-        <Switch>
-            <Route 
-                exact path='/welcome' 
-                render={props => <Welcome {...props} getUser={this.getUser}/>}
-            />
-            <Route 
-                path='/dashboard' 
-                render={props => <Dashboard {...props} paintingCollections={this.state.paintingCollections} addPainting={this.addPainting} userCollections={userCollections} userPaintings={userPaintings} user={this.state.user} addCollection={this.addCollection} />}
-            />
-            <Route 
-                exact path='/gallery'
-                render={props => <Gallery {...props} user={this.state.user} userCollections={userCollections} paintings={this.state.paintings} addPaintingtoCollection={this.addPaintingtoCollection} />}
-            />
-        </Switch>
+        <Fragment>
+            <NavBar user={this.state.user}/>
+            <Switch>
+                <Route 
+                    exact path='/' 
+                    render={props => <Welcome {...props} getUser={this.getUser}/>}
+                />
+                <Route 
+                    path='/dashboard' 
+                    render={props => <Dashboard {...props} paintingCollections={this.state.paintingCollections} addPainting={this.addPainting} userCollections={userCollections} userPaintings={userPaintings} user={this.state.user} addCollection={this.addCollection} />}
+                />
+                <Route 
+                    exact path='/gallery'
+                    render={props => <Gallery {...props} user={this.state.user} userCollections={userCollections} paintings={this.state.paintings} addPaintingtoCollection={this.addPaintingtoCollection} />}
+                />
+            </Switch>
+        </Fragment>
 
         )
     }
