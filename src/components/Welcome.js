@@ -10,6 +10,10 @@ class Welcome extends React.Component  {
         noUserFoundToggle: false
     }
 
+    componentDidMount() {
+        this.props.getUser("") // logs out user
+    }
+
     handleChange = (e) => {
         const attribute = e.target.name
         const value = e.target.value
@@ -21,36 +25,47 @@ class Welcome extends React.Component  {
     handleFormClick = (e) => {
         e.preventDefault()
         if (e.target.name  === "login") {
-            fetch('http://localhost:3000/users')
+            fetch('http://localhost:3000/login', {
+                method: "POST",
+                headers: {'content-type': 'application/json',
+                        accepts: 'application/json'},
+                body: JSON.stringify({
+                    user: {username: this.state.username,
+                    password: this.state.password}
+                })
+            })
             .then((response) => {
                 return response.json()
             })
-            .then((users) => {
-                console.log(users)
-                const user = users.filter(user => user.username === this.state.username)[0]
-                if (!user) {
-                    this.setState(() => {return {noUserFoundToggle: true}})
+            .then((user) => {
+                if (user.errors) {
+                    alert(user.errors)
                 } else {
                     this.props.getUser(user)
-                    this.setState(() => {return {noUserFoundToggle: false}})
+                    this.props.history.push("/dashboard")
                 }
             })
         } else if (e.target.name === "signup") {
-            fetch('http://localhost:3000/users',{
+            fetch('http://localhost:3000/signup',{
             method: "POST",
             headers: {'content-type': 'application/json',
                     accepts: 'application/json'},
             body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
+                user: {username: this.state.username,
+                password: this.state.password}
             })}
             )
             .then(resp => resp.json())
             .then(newUser => {
-                this.props.getUser(newUser)
+                console.log(newUser)
+                if (newUser.errors) {
+                    alert(newUser.errors)
+                } else {
+                    this.props.getUser(newUser)
+                    this.props.history.push("/dashboard")
+                }
             })
         }
-        this.props.history.push("/dashboard")
     }
 
     handleClick = () => [

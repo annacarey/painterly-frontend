@@ -23,10 +23,7 @@ function CollectionsList ({match, collections, addCollection, paintingCollection
         </div>
         }
         
-        
     const renderCollections = collections.map(collection => <Link key={collection.id} to={`/dashboard/collections/${collection.id}`}>{collection.title}</Link>)
-
- 
 
     return (
         <div className="myCollections">
