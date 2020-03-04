@@ -1,3 +1,9 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    /* font-weight: bold; */
+}
+
 .cell {
     width: 80px; 
     height: 80px;
@@ -15,6 +21,7 @@
 
 .gallery {
     display: flex;
+    /* flex-flow: column-wrap; */
     flex-wrap: wrap;
     background-color: grey;
     width: 300px;
@@ -32,6 +39,90 @@
     border-style: solid;
     border-color: black
 }
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    text-align: center;
+}
+
+#wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; 
+}
+
+#welcomeheader {
+    color: #c7d6e7;
+    background-color: #629bde;
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 150px; 
+    font-weight: bold; 
+    letter-spacing: -1px; 
+    transform: skewX(5deg);
+    line-height: 1; 
+    text-align: center;
+}
+
+.button {
+    background-color: #629bde;
+    border: none;
+    color: white;
+    padding: 10px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    font: "Open Sans";
+    transition: transform 0.1s linear;
+    margin: 5px;
+}
+
+.button:hover {
+    background-color: rgb(59, 107, 155);
+    transform: scale(1.1);
+}
+
+.button:active {
+    transform: translateY(4px);
+}
+
+.collection-button {
+    background-color: #629bde;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    font: "Open Sans";
+    transition: transform 0.1s linear;
+    margin: 5px; 
+}
+
+.collection-button:hover {
+    background-color: rgb(59, 107, 155);
+    transform: scale(1.1);
+}
+
+.collection-button:active {
+    transform: translateY(4px);
+}
+
+li {
+    list-style: none;
+    text-align: right;
+}
+
+
 
 .error {
     color: red;

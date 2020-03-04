@@ -13,16 +13,20 @@ function PaintingsList ({paintings, history}) {
     }
 
     return (
+        <div>
         <div className="myPaintings">
-            <h1>My Paintings:</h1>
+            <h1>My Paintings</h1>
+        </div>
+            <div id="wrap">
             {paintings.map(painting => {
                 return (
                     <div>
                         <h2>{painting.title}</h2>
                         <Board boardSize="small" currentGrid={painting.grid} ></Board> 
                         <button onClick={() => handleClick(painting)}>Edit</button>
-                    </div>
+            </div>
             )})}
+        </div>
         </div>
     )
 }

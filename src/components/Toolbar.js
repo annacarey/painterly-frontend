@@ -40,7 +40,7 @@ function Toolbar (props) {
             <div onClick={() => props.setColor("purple")} className="square">Purple</div>
 
 
-        <button onClick={submitPainting}> Save Painting </button>
+        <button className="button" onClick={submitPainting}> Save Painting </button>
         <input type="text" onChange={handleChange} value={title}/>
         <label>Title:</label>
 

@@ -82,18 +82,22 @@ class Welcome extends React.Component  {
     
     render() {
         return (
+            <div>
+                <div id="welcomeheader">p a i n t e r l y</div>
         <div className="welcome">
+            <br />
             <form>
                 <label>Username: </label>
                 <input name="username" value={this.state.username} type="text" onChange={this.handleChange}></input>
                 <label> Password: </label>
-                <input name="password" value={this.state.password} type="text" onChange={this.handleChange}></input>
-                <input onClick={this.handleFormClick} type="submit" name="login" value="Log in"/>
-                <input onClick={this.handleFormClick} type="submit" name="signup" value="Sign up"/>
+                <input name="password" value={this.state.password} type="password" onChange={this.handleChange}></input> 
+                <input className="button" onClick={this.handleFormClick} type="submit" name="login" value="Log in"/> 
+                <input className="button" onClick={this.handleFormClick} type="submit" name="signup" value="Sign up"/>
             </form>
-            <br></br>
+            <br />
             {this.state.noUserFoundToggle && <p className="error">Username and/or password incorrect</p>}
-            <br></br>
+            <br />
+        </div>
         </div>
         )
     }

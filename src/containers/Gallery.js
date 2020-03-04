@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Board from '../components/Board'
+import '../components/Components.css';
+
 
 function Gallery (props) {
 
@@ -17,27 +19,34 @@ function Gallery (props) {
 
     const addToCollectionOption = (collections, painting) => {
         return(
+            <div class='custom-select'>
             <form onSubmit={handleSubmit} name={painting.id}>
                 <select onChange={handleChange}> 
                     {collections.map(collection => {
                         return <option>{collection.title}</option>
                     })}
                 </select>
-                <input type="submit" value="Add to Collection"></input>
+                <input className="collection-button" type="submit" value="Add to Collection"></input>
             </form>
+            </div>
         )
     }
 
     return (
-        
-        props.paintings.map(painting => {
-            return <div>
-                <h1>{painting.title}</h1>
-                <Board boardSize='small' currentGrid={painting.grid}/>
-                {props.user!=="" && addToCollectionOption(props.userCollections, painting)}
-            </div>
-        })
-    )
+        <div>
+        <div className="myGallery">
+            <h1>Gallery</h1>
+        </div>
+        <div id="wrap">
+            {props.paintings.map(painting => 
+                <div className='gallerypaintings'>
+                    <h2>{painting.title}</h2>
+                    <Board boardSize='small' currentGrid={painting.grid}/>
+                    {props.user!=="" && addToCollectionOption(props.userCollections, painting)}
+                </div>)}
+        </div>             
+        </div>)
+    
 }
 
 export default Gallery;
