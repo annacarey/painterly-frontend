@@ -45,7 +45,7 @@ function Toolbar (props) {
     return (
         <div className="toolbar"> 
             
-            <div onClick={() => props.setColor("white")} className="square" style={{backgroundColor: "white"}}>Eraser</div>
+            <div onClick={() => props.setColor("white")} className="last-square" style={{backgroundColor: "white"}}>Eraser</div>
             <div onClick={() => props.setColor("red")} className="square" style={{backgroundColor: "red"}} />
             <div onClick={() => props.setColor("blue")} className="square" style={{backgroundColor: "blue"}} />
             <div onClick={() => props.setColor("green")} className="square" style={{backgroundColor: "green"}} />

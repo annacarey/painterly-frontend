@@ -11,7 +11,7 @@ function NavBar(props) {
       {currentUser && <div className="nav-links"><NavLink to="/dashboard" exact>Dashboard</NavLink></div> }
       {currentUser && <div className="nav-links"><NavLink to="/dashboard/paintings" exact>My Paintings</NavLink></div> }
       {currentUser && <div className="nav-links"><NavLink to="/dashboard/collections" exact>My Collections</NavLink></div> }
-  {currentUser && <div className="nav-links"><NavLink to="/" exact>{currentUser ? 'Logout' : 'LogIn' }</NavLink></div> }
+  {currentUser && <div className="last-nav-link"><NavLink to="/" exact>{currentUser ? 'Logout' : 'LogIn' }</NavLink></div> }
     </div>
   );
 }
