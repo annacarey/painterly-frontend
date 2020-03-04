@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Board from '../components/Board'
 import '../components/Components.css';
 
 
 function Gallery (props) {
 
-    const [collection, setCollection] = useState(props.user!==""? props.userCollections[0].title : "")
+    const [collection, setCollection] = useState("")
+
+    useEffect(() => {
+        if (props.userCollections.length > 0) {
+            setCollection(props.userCollections[0].title)
+        }
+    }, [])
 
     const handleChange = (e) => {
         setCollection(e.target.value)
@@ -18,18 +24,18 @@ function Gallery (props) {
     }
 
     const addToCollectionOption = (collections, painting) => {
-        return(
-            <div class='custom-select'>
-            <form onSubmit={handleSubmit} name={painting.id}>
-                <select onChange={handleChange}> 
-                    {collections.map(collection => {
-                        return <option>{collection.title}</option>
-                    })}
-                </select>
-                <input className="collection-button" type="submit" value="Add to Collection"></input>
-            </form>
-            </div>
-        )
+        if (collections.length > 0) {
+            return(
+                <form onSubmit={handleSubmit} name={painting.id}>
+                    <select onChange={handleChange}> 
+                        {collections.map(collection => {
+                            return <option>{collection.title}</option>
+                        })}
+                    </select>
+                    <input className="collection-button" type="submit" value="Add to Collection"></input>
+                </form>
+            )
+        }
     }
 
     return (
@@ -41,12 +47,11 @@ function Gallery (props) {
             {props.paintings.map(painting => 
                 <div className='gallerypaintings'>
                     <h2>{painting.title}</h2>
-                    <Board boardSize='small' currentGrid={painting.grid}/>
+                    <Board key={painting.id} boardSize='small' currentGrid={painting.grid}/>
                     {props.user!=="" && addToCollectionOption(props.userCollections, painting)}
                 </div>)}
         </div>             
         </div>)
-    
 }
 
 export default Gallery;

@@ -7,7 +7,7 @@ import {grid1, grid2, grid3} from './grid.js'
 class Canvas extends React.Component {
   
    state = {
-       currentGrid: grid2,
+       currentGrid: grid3,
        currentColor: "#FFFFFF"
    }
 
