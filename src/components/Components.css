@@ -5,13 +5,13 @@ html {
 }
 
 .cell {
-    width: 80px; 
-    height: 80px;
+    width: 32px; 
+    height: 32px;
 }
 
 .small-cell {
-    width: 30px;
-    height: 30px;
+    width: 12px;
+    height: 12px;
 }
 
 .login {

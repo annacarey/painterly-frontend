@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Components.css';
 
 const Cell = React.memo(function Cell (props) {
+
     const setBackground = {
         backgroundColor: props.cellColor
     }
 
     const handleHover = () => {
-        props.paintCell(props.xCord, props.yCord)
+        props.mouseDown && props.paintCell(props.xCord, props.yCord)
     }
 
     return (
