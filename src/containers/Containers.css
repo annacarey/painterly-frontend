@@ -1,9 +1,14 @@
 
+body {
+background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,216,237,1) 100%);
+}
+
 .application {
     display: flex;
 }
 .navbar {
     display: flex;
+    flex-wrap: nowrap;
     margin-top: 10px;
     flex-direction: column; 
     border-bottom: solid;
@@ -55,9 +60,28 @@
 }
 
 .nav-links:hover {
-    background-color: pink;
+    background-color: #9FB4C7;
 }
 
 #welcome {
     text-align: center
+}
+
+#username {
+    background-color: #9FB4C7;
+    font-style: italic; 
+
+}
+
+a {
+    color: rgb(32, 62, 87);
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none
+}
+
+a:hover {
+    font-weight: bold;
 }

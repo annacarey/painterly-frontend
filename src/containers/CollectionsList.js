@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Board from '../components/Board';
+import '../components/Components.css';
 import CollectionShow from '../components/CollectionShow'
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
@@ -17,7 +17,7 @@ function CollectionsList ({match, collections, addCollection, userPaintings, pai
             <form onSubmit={handleSubmit}>
                 <label>Title: </label>
                 <input onChange={(e) => setTitle(e.target.value)} value={title} type="text"></input>
-                <input type="submit" value="Create"></input>
+                <input className="button" type="submit" value="Create"></input>
             </form>
         </div>
         }
@@ -26,7 +26,7 @@ function CollectionsList ({match, collections, addCollection, userPaintings, pai
 
     return (
         <div className="myCollections">
-            <h1>My Collections:</h1>
+            <h1 id="mycollections">My Collections</h1>
             {renderCollectionForm()}
             <br></br>
             {renderCollections}
