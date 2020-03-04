@@ -18,6 +18,14 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,216,237,1) 
 .nav-links {
     display: flex;
     border-style: solid;
+    border-bottom: none;
+    border-width: 2px;
+    padding: 10px;
+}
+
+.last-nav-link {
+    display: flex;
+    border-style: solid;
     border-width: 2px;
     padding: 10px;
 }
