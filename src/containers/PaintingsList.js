@@ -17,7 +17,7 @@ function PaintingsList ({paintings, history}) {
                 return (
                     <div>
                         <h2>{painting.title}</h2>
-                        <Board boardSize="small" currentGrid={painting.grid} ></Board> 
+                        <Board key={painting.id} boardSize="small" currentGrid={painting.grid} ></Board> 
                         <button onClick={() => handleClick(painting)}>Edit</button>
                     </div>
             )})
@@ -40,13 +40,6 @@ function PaintingsList ({paintings, history}) {
                 </div>
         </div> )
                 
-   
-        // } else {
-        //     return (<div>
-        //         <p>You don't have any saved paintings yet... </p>
-        //         <Link to={`/dashboard`}>Go create something new!</Link>
-        //     </div>)
-        // }
 }
 
 

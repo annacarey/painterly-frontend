@@ -40,17 +40,17 @@ function Gallery (props) {
 
     return (
         <div>
-        <div className="myGallery">
-            <h1>Gallery</h1>
-        </div>
-        <div id="wrap">
-            {props.paintings.map(painting => 
-                <div className='gallerypaintings'>
-                    <h2>{painting.title}</h2>
-                    <Board key={painting.id} boardSize='small' currentGrid={painting.grid}/>
-                    {props.user!=="" && addToCollectionOption(props.userCollections, painting)}
-                </div>)}
-        </div>             
+            <div className="myGallery">
+                <h1>Gallery</h1>
+            </div>
+            <div id="wrap">
+                {props.paintings.map(painting => 
+                    <div className='gallerypaintings'>
+                        <h2>{painting.title}</h2>
+                        <Board key={painting.id} boardSize='small' currentGrid={painting.grid}/>
+                        {props.user!=="" && addToCollectionOption(props.userCollections, painting)}
+                    </div>)}
+            </div>             
         </div>)
 }
 
