@@ -5,12 +5,13 @@ import {Link} from 'react-router-dom';
 const CollectionShow = (props) => {
     const id = parseInt(props.match.params.collectionId)
     const targetCollection = (props.collections.find(collection => collection.id === id))
+    debugger
     const displayPaintings = () => {
         if (targetCollection.paintings && targetCollection.paintings.length > 0 ) {
             return targetCollection.paintings.map(painting => {
                 return <div>
                     <h1>{painting && painting.title}</h1>
-                    <Board boardSize='small' currentGrid={painting && painting.grid} />
+                    <Board key={painting.id} boardSize='small' currentGrid={painting && painting.grid} />
                         </div>
                 })
         } else {
