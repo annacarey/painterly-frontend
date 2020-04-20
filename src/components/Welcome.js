@@ -58,7 +58,6 @@ class Welcome extends React.Component  {
             )
             .then(resp => resp.json())
             .then(newUser => {
-                console.log(newUser)
                 if (newUser.errors) {
                     alert(newUser.errors)
                 } else {
