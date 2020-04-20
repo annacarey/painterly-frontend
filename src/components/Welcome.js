@@ -28,7 +28,7 @@ class Welcome extends React.Component  {
             fetch('http://localhost:3000/login', {
                 method: "POST",
                 headers: {'content-type': 'application/json',
-                        'accept': 'application/json'},
+                        accepts: 'application/json'},
                 body: JSON.stringify({
                     user: {username: this.state.username,
                     password: this.state.password}

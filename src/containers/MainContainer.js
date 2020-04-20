@@ -79,7 +79,6 @@ class MainContainer extends React.Component {
         )
         .then(resp => resp.json())
         .then(newPaintingCollection => {
-            console.log(newPaintingCollection)
             const newPainting = this.state.paintings.find(painting => painting.id === newPaintingCollection.painting_id)
             this.setState(prevState => {
                  return {collections: prevState.collections.map(collection => collection.id===newPaintingCollection.collection_id ? {...collection, paintings: [...collection.paintings, newPainting]} : collection)
