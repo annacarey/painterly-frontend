@@ -15,7 +15,7 @@ class MainContainer extends React.Component {
 
     componentDidMount() {
         // Get all paintings
-        fetch('http://localhost:3000/paintings')
+        fetch('https://painterly-api.herokuapp.com/paintings')
         .then((response) => {
             return response.json();
         })
@@ -24,7 +24,7 @@ class MainContainer extends React.Component {
         })
 
         // Get all collections
-        fetch('http://localhost:3000/collections')
+        fetch('https://painterly-api.herokuapp.com/collections')
         .then((response) => {
             return response.json();
         })
@@ -44,7 +44,7 @@ class MainContainer extends React.Component {
     }
 
     addCollection = (title) => {
-        fetch('http://localhost:3000/collections',{
+        fetch('https://painterly-api.herokuapp.com/collections',{
         method: "POST",
         headers: {'content-type': 'application/json',
                 accepts: 'application/json'},
@@ -68,7 +68,7 @@ class MainContainer extends React.Component {
 
     addPaintingtoCollection = (paintingId, collectionTitle) => {
         const collectionId = this.state.collections.filter(collection => collection.title === collectionTitle)[0].id
-        fetch(`http://localhost:3000/painting_collections/`,{
+        fetch(`https://painterly-api.herokuapp.com/painting_collections/`,{
         method: "POST",
         headers: {'content-type': 'application/json',
                 accepts: 'application/json'},

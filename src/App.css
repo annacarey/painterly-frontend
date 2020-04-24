@@ -39,15 +39,15 @@
 
 
 .square {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   border: 5px solid black;
   border-bottom: none;
 }
 
 .last-square {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   border: 5px solid black;
   display: flex;
   justify-content: center;

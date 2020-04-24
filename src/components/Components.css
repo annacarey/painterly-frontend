@@ -5,9 +5,10 @@ html {
 }
 
 .cell {
-    width: 32px; 
-    height: 32px;
+    width: 22px; 
+    height: 22px;
 }
+/* 625 */
 
 .small-cell {
     width: 12px;
@@ -34,8 +35,8 @@ html {
     display: flex;
     flex-wrap: wrap;
     background-color: grey;
-    width: 800px;
-    height: 800px;
+    width: 550px;
+    height: 550px;
     border-style: solid;
     border-color: black
 }
@@ -54,19 +55,11 @@ h2 {
 #wrap {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
 }
 
-#welcomeheader {
-    color: #c7d6e7;
-    background-color: #629bde;
-    font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 150px; 
-    font-weight: bold; 
-    letter-spacing: -1px; 
-    transform: skewX(5deg);
-    line-height: 1; 
-    text-align: center;
+.gallerypaintings {
+    padding: 10px;
 }
 
 .button {

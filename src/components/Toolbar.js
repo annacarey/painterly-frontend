@@ -1,5 +1,6 @@
 import React, {useState, Fragment} from 'react';
 import { SliderPicker } from 'react-color';
+import styled from 'styled-components'
 
 function Toolbar (props) {
 
@@ -21,7 +22,7 @@ function Toolbar (props) {
     const userId = props.user.id
 
     function submitPainting() {
-        fetch('http://localhost:3000/paintings', {
+        fetch('https://painterly-api.herokuapp.com/paintings', {
         method: "POST",
         headers: {'content-type': 'application/json',
                 accepts: 'application/json'},
@@ -43,27 +44,29 @@ function Toolbar (props) {
     }
     
     return (
-        <div className="toolbar"> 
-            
-            <div onClick={() => props.setColor("white")} className="last-square" style={{backgroundColor: "white"}}>Eraser</div>
-            <div onClick={() => props.setColor("red")} className="square" style={{backgroundColor: "red"}} />
-            <div onClick={() => props.setColor("blue")} className="square" style={{backgroundColor: "blue"}} />
-            <div onClick={() => props.setColor("green")} className="square" style={{backgroundColor: "green"}} />
-            <div onClick={() => props.setColor("yellow")} className="square" style={{backgroundColor: "yellow"}} />
-            <div onClick={() => props.setColor("orange")} className="square" style={{backgroundColor: "orange"}} />
-            <div onClick={() => props.setColor("purple")} className="square" style={{backgroundColor: "purple"}} />
+        <ToolbarDiv> 
+            <Title>
+                <label>Title your work!</label>
+                <input type="text" onChange={handleChange} value={title}/>
+                <button onClick={submitPainting}> Save Painting </button>
+            </Title>
+            <ColorPicker>
+                <p>Pick your own!</p>
+                <SliderPicker
+                    color={customColor} 
+                    onChangeComplete={handleChangeComplete}
+                />
+            </ColorPicker>
             <div onClick={handleClick} className="square" style={{backgroundColor: customColor}} />
+            <div onClick={() => props.setColor("red")} className="square" style={{backgroundColor: "#FF0900"}} />
+            <div onClick={() => props.setColor("blue")} className="square" style={{backgroundColor: "#0079FF"}} />
+            <div onClick={() => props.setColor("green")} className="square" style={{backgroundColor: "#00F11D"}} />
+            <div onClick={() => props.setColor("yellow")} className="square" style={{backgroundColor: "#FFEF00"}} />
+            <div onClick={() => props.setColor("orange")} className="square" style={{backgroundColor: "#FF7F00"}} />
+            <div onClick={() => props.setColor("purple")} className="square" style={{backgroundColor: "#A800FF"}} />
+            <div onClick={() => props.setColor("white")} className="last-square" style={{backgroundColor: "white"}}>Eraser</div>
             <br></br>
-            <SliderPicker
-                color={customColor} 
-                onChangeComplete={handleChangeComplete}
-            />
-            <p>Pick your own!</p>
-             <button onClick={submitPainting}> Save Painting </button>
-        <input type="text" onChange={handleChange} value={title}/>
-        <label>Title your work!</label>
-
-        </div>
+        </ToolbarDiv>
     )
 
 }
@@ -75,3 +78,25 @@ function Toolbar (props) {
 
 
 export default Toolbar;
+
+const ToolbarDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    align-items: center;
+    margin-top: 10px;
+`
+
+const Title = styled.div`
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+`
+
+const ColorPicker = styled.div`
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 100%;
+`
