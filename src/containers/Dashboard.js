@@ -4,6 +4,7 @@ import Board from '../components/Board'
 import CollectionsList from './CollectionsList'
 import PaintingsList from './PaintingsList'
 import './Containers.css';
+import styled from 'styled-components'
 import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
 
 class Dashboard extends React.Component {
@@ -11,7 +12,7 @@ class Dashboard extends React.Component {
     render() {
         const currentPainting = this.props.history.location.state && this.props.history.location.state.currentPainting
         return (
-        <div className="main-page">
+        <Wrapper>
             <Switch>
                 <Route 
                         path={`${this.props.match.path}/collections`}
@@ -26,15 +27,21 @@ class Dashboard extends React.Component {
                         path="/dashboard"
                         render = {(props) =>  
                             <div className="dashboard">
-                                <h1 className="create-drawing">Create your drawing below</h1>
                                 <Canvas {...props} currentPainting={currentPainting} user={this.props.user} addPainting={this.props.addPainting} />
                         </div>
                         }
                 />
             </Switch>
-        </div>
+        </Wrapper>
         )
     }
 }
 
 export default Dashboard;
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%
+`

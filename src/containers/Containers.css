@@ -3,37 +3,6 @@ body {
 background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,216,237,1) 100%);
 }
 
-.application {
-    display: flex;
-}
-.navbar {
-    display: flex;
-    flex-wrap: nowrap;
-    margin-top: 10px;
-    flex-direction: column; 
-    border-bottom: solid;
-    border-width: 2px;
-}
-
-.nav-links {
-    display: flex;
-    border-style: solid;
-    border-bottom: none;
-    border-width: 2px;
-    padding: 10px;
-}
-
-.last-nav-link {
-    display: flex;
-    border-style: solid;
-    border-width: 2px;
-    padding: 10px;
-}
-
-.main-page {
-    display: flex;
-    flex-direction: column;
-}
 
 .create-drawing {
     
@@ -45,17 +14,12 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,216,237,1) 
     margin: 10px;
 }
 
-.canvas {
-    display: flex;
-    margin-left: 10px;
-}
 
-.toolbar {
-    display: flex;
-    flex-direction: column-reverse;
-    margin-right: 10px
-}
 
+
+.slider-picker {
+    width: 100%;
+}
 
 .myGallery {
     /* display: flex */
@@ -69,10 +33,6 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,216,237,1) 
 
 .nav-links:hover {
     background-color: #9FB4C7;
-}
-
-#welcome {
-    text-align: center
 }
 
 #username {

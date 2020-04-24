@@ -1,5 +1,6 @@
 import React from 'react';
 import './Components.css';
+import styled from 'styled-components'
 
 class Welcome extends React.Component  {
 
@@ -25,7 +26,7 @@ class Welcome extends React.Component  {
     handleFormClick = (e) => {
         e.preventDefault()
         if (e.target.name  === "login") {
-            fetch('http://localhost:3000/login', {
+            fetch('https://painterly-api.herokuapp.com/login', {
                 method: "POST",
                 headers: {'content-type': 'application/json',
                         accepts: 'application/json'},
@@ -47,7 +48,7 @@ class Welcome extends React.Component  {
                 }
             })
         } else if (e.target.name === "signup") {
-            fetch('http://localhost:3000/signup',{
+            fetch('https://painterly-api.herokuapp.com/signup',{
             method: "POST",
             headers: {'content-type': 'application/json',
                     accepts: 'application/json'},
@@ -82,25 +83,51 @@ class Welcome extends React.Component  {
     
     render() {
         return (
-            <div>
-                <div id="welcomeheader">p a i n t e r l y</div>
-        <div className="welcome">
-            <br />
-            <form>
-                <label>Username: </label>
-                <input name="username" value={this.state.username} type="text" onChange={this.handleChange}></input>
-                <label> Password: </label>
-                <input name="password" value={this.state.password} type="password" onChange={this.handleChange}></input> 
-                <input className="button" onClick={this.handleFormClick} type="submit" name="login" value="Log in"/> 
-                <input className="button" onClick={this.handleFormClick} type="submit" name="signup" value="Sign up"/>
-            </form>
-            <br />
-            {this.state.noUserFoundToggle && <p className="error">Username and/or password incorrect</p>}
-            <br />
-        </div>
-        </div>
+            <Wrapper>
+                <WelcomeHeader>p a i n t e r l y</WelcomeHeader>
+                <WelcomeDiv>
+                    <br />
+                    <form>
+                        <label>Username: </label>
+                        <input name="username" value={this.state.username} type="text" onChange={this.handleChange}></input>
+                        <label> Password: </label>
+                        <input name="password" value={this.state.password} type="password" onChange={this.handleChange}></input> 
+                        <input className="button" onClick={this.handleFormClick} type="submit" name="login" value="Log in"/> 
+                        <input className="button" onClick={this.handleFormClick} type="submit" name="signup" value="Sign up"/>
+                    </form>
+                    <br />
+                    {this.state.noUserFoundToggle && <p className="error">Username and/or password incorrect</p>}
+                    <br />
+                </WelcomeDiv>
+            </Wrapper>
         )
     }
 }
-
+ 
 export default Welcome;
+
+const WelcomeHeader = styled.div`
+    color: #c7d6e7;
+    background-color: #629bde;
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 100px; 
+    font-weight: bold; 
+    letter-spacing: -1px; 
+    transform: skewX(5deg);
+    line-height: 1; 
+    text-align: center;
+`
+
+const WelcomeDiv = styled.div`
+    
+`
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #c7d6e7;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+`

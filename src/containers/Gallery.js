@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Board from '../components/Board'
 import '../components/Components.css';
+import styled from 'styled-components'
 
 
 function Gallery (props) {
@@ -39,7 +40,7 @@ function Gallery (props) {
     }
 
     return (
-        <div>
+        <Wrapper>
             <div className="myGallery">
                 <h1>Gallery</h1>
             </div>
@@ -51,7 +52,13 @@ function Gallery (props) {
                         {props.user!=="" && addToCollectionOption(props.userCollections, painting)}
                     </div>)}
             </div>             
-        </div>)
+        </Wrapper>)
 }
 
 export default Gallery;
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+`
