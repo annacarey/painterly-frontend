@@ -58,12 +58,12 @@ function Toolbar (props) {
                 />
             </ColorPicker>
             <div onClick={handleClick} className="square" style={{backgroundColor: customColor}} />
-            <div onClick={() => props.setColor("red")} className="square" style={{backgroundColor: "#FF0900"}} />
-            <div onClick={() => props.setColor("blue")} className="square" style={{backgroundColor: "#0079FF"}} />
-            <div onClick={() => props.setColor("green")} className="square" style={{backgroundColor: "#00F11D"}} />
-            <div onClick={() => props.setColor("yellow")} className="square" style={{backgroundColor: "#FFEF00"}} />
-            <div onClick={() => props.setColor("orange")} className="square" style={{backgroundColor: "#FF7F00"}} />
-            <div onClick={() => props.setColor("purple")} className="square" style={{backgroundColor: "#A800FF"}} />
+            <div onClick={() => props.setColor("#FF0900")} className="square" style={{backgroundColor: "#FF0900"}} />
+            <div onClick={() => props.setColor("#0079FF")} className="square" style={{backgroundColor: "#0079FF"}} />
+            <div onClick={() => props.setColor("#g00F11D")} className="square" style={{backgroundColor: "#00F11D"}} />
+            <div onClick={() => props.setColor("#FFEF00")} className="square" style={{backgroundColor: "#FFEF00"}} />
+            <div onClick={() => props.setColor("#FF7F00")} className="square" style={{backgroundColor: "#FF7F00"}} />
+            <div onClick={() => props.setColor("#A800FF")} className="square" style={{backgroundColor: "#A800FF"}} />
             <div onClick={() => props.setColor("white")} className="last-square" style={{backgroundColor: "white"}}>Eraser</div>
             <br></br>
         </ToolbarDiv>
