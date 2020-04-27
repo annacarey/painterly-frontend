@@ -1,4 +1,4 @@
-# Painterly ![logo](./public/favicon-32x32.png "logo")
+# Painterly ![logo](./public/images/icons/favicon-32x32.png "logo")
 
 Painterly is an application that aims to unleash your creativity by allowing you to create digital paintings using your computer mouse and save them to your profile and to a public gallery. You can also save paintings to collections.
 
@@ -21,23 +21,23 @@ alt="Painterly demo video" width="240" height="180" border="10" /></a>
 
 1. Log in or sign up.
 
-![Homepage Screenshot](images/screenshots/Homepage.png "Homepage")
+![Homepage Screenshot](/public/images/screenshots/Homepage.png "Homepage")
 
-2. View your dashboard with friends on your list organized by priority.
+2. Create a painting by selecting colors from the toolbar and using your mouse to click and drag across the digital canvas.
 
-![Dashboard](images/screenshots/Dashboard.png "Dashboard") 
+![Canvas](public/images/screenshots/Canvas.png "Canvas") 
 
-3. If it's been longer than 14 days since you reached out to a friend, they will appear in notifications.
+3. When you save a painting it saves to your profile and to a public gallery.
 
-![Notifications](images/screenshots/Notifications.png "Notifications")
+![Gallery](public/images/screenshots/Gallery.png "Gallery")
 
-4. You can view each friend's information.
+4. Create collections to organize your favorite paintings and group them together.
 
-![Friend View](images/screenshots/Friend.png "Friend View")
+![Collections](public/images/screenshots/Collections.png "Collections")
 
-5. And mark them as contacted using the calendar pop-up.
+5. Add paintings to collections from the public gallery.
 
-![Contact Feature](images/screenshots/Contact.png "Contact Feature")
+![Add to Collection Feature](/public/images/screenshots/AddToCollection.png "Add to Collection Feature")
 
 
 ## Installation and Setup Instructions
