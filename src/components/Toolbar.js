@@ -60,7 +60,7 @@ function Toolbar (props) {
             <div onClick={handleClick} className="square" style={{backgroundColor: customColor}} />
             <div onClick={() => props.setColor("#FF0900")} className="square" style={{backgroundColor: "#FF0900"}} />
             <div onClick={() => props.setColor("#0079FF")} className="square" style={{backgroundColor: "#0079FF"}} />
-            <div onClick={() => props.setColor("#g00F11D")} className="square" style={{backgroundColor: "#00F11D"}} />
+            <div onClick={() => props.setColor("#00F11D")} className="square" style={{backgroundColor: "#00F11D"}} />
             <div onClick={() => props.setColor("#FFEF00")} className="square" style={{backgroundColor: "#FFEF00"}} />
             <div onClick={() => props.setColor("#FF7F00")} className="square" style={{backgroundColor: "#FF7F00"}} />
             <div onClick={() => props.setColor("#A800FF")} className="square" style={{backgroundColor: "#A800FF"}} />
